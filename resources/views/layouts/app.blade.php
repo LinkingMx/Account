@@ -15,6 +15,8 @@
 
         <!-- Styles -->
         @livewireStyles
+        <link rel="stylesheet" type="text/css" href="public/css/style.css" />
+
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
