@@ -12,6 +12,8 @@ class ShowBalance extends Component
     public $last_update;
     public $rows = 5;
     public $total_rows;
+    public $month;
+    public $year;
 
     public function render()
     {
@@ -21,7 +23,6 @@ class ShowBalance extends Component
         ->get();
 
         $this->balance = $transactions->sum('amount');
-        $this->total_rows = $transactions->count();
         $this->last_update = $transactions->take(1);
 
         return view('livewire.show-balance', compact('transactions'));
@@ -32,5 +33,14 @@ class ShowBalance extends Component
      */
     public function load(){
         $this->rows += 5;
+    }
+
+    /**
+     * Contructor original del controlador
+     */
+    public function __construct()
+    {
+        $this->year = '2021';
+        $this->month = '01';
     }
 }
