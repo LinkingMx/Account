@@ -2,7 +2,7 @@
     {{-- In work, do what you enjoy. --}}
     <div class="mb-2 text-center block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <p class="mb-5 tracking-tight text-gray-900 dark:text-white">Welcome: {{ Auth::user()->name }}</p>
-        <p class="text-2xl font-bold text-gray-700 dark:text-gray-400">${{ number_format($balance/1000,2,'.',','); }}</p>
+        <p class="text-2xl font-bold text-gray-700 dark:text-gray-400">${{ number_format($balance,2,'.',','); }}</p>
         <small>Last balance update: {{ $last_update[0]->date }}</small>
     </div>
     
@@ -47,7 +47,6 @@
                     <option value="2022">22</option>
                     <option value="2023">23</option>
                     <option value="2024">24</option>
-                    <option value="DE">Germany</option>
                     </select>
                 </div>
             </div>
@@ -63,7 +62,7 @@
                             <div class="capitalize">{{ ucfirst( $item->subject ) }}</div>
                         </td>
                         <td class="align-top w-1/3 text-sm pt-4 pb-2">
-                            ${{ number_format($item->amount/1000,2,'.',','); }}<br>
+                            ${{ number_format($item->amount,2,'.',','); }}<br>
                             <small class="text-gray-500 text-xs italic">{{ $item->date; }}</small>
                         </td>
                     </tr>
